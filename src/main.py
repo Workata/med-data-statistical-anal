@@ -39,10 +39,11 @@ print(description)
 def print_stat_from_description(np_arr_stat, stat_name):
     df = pd.DataFrame(np_arr_stat, columns=[stat_name], index=headers)
     df.index.name = "Attributes"
-    # print(df)
     print(f"--------- METRICS: {stat_name} ------------\n")
     print(df.style.format(precision=2).to_latex(column_format="|c|S|", hrules=True, siunitx=True))
 
+
+# print(dataset)
 
 # * Mean
 print_stat_from_description(description.mean, stat_name="Mean")
@@ -50,5 +51,14 @@ print_stat_from_description(description.mean, stat_name="Mean")
 # * Variance
 print_stat_from_description(description.variance, stat_name="Variance")
 
-# * Skewness
+# * Standard deviation
+std = np.std(dataset)
+print_stat_from_description(pd.Series.to_numpy(std), stat_name="Standard deviation")
+
+# # * Skewness
 print_stat_from_description(description.skewness, stat_name="Skewness")
+
+# * Kurtosis
+print_stat_from_description(description.kurtosis, stat_name="Kurtosis")
+
+
