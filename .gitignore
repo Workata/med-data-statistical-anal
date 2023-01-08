@@ -2,6 +2,9 @@
 *.dat
 *.csv
 
+# plots
+*.png
+
 notes.txt
 
 # Byte-compiled / optimized / DLL files
